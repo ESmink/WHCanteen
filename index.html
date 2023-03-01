@@ -1,0 +1,466 @@
+<head>
+    <style>
+        h2{
+            display: inline-block;
+        }
+        h3{
+            margin: 10px;
+        }
+        #selectedDishesView{
+            display: inline-block;
+            min-height: 200px;
+            vertical-align: top;
+        }
+        #totalStats{
+            display: inline-block;
+            height: 20px;
+            margin-left: 40px;
+            vertical-align: top;
+        }
+        #minStats{
+            display: inline-block;
+            margin-left: 40px;
+            vertical-align: top;
+        }
+        #suggestedMeals{
+            display: inline-block;
+            margin-left: 40px;
+            vertical-align: top;
+        }
+        #costBar{
+            text-align: center;
+            font-size: x-large;
+            background-color: darkgray;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 90%;
+        }
+        .minStatsEntryValue{
+            width: 50px
+        }
+        .dish{
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 5px;
+            background-color: lightgrey;
+            padding: 2px;
+            margin: 5px;
+        }
+        .fullnessCost{
+            display: inline-block;
+            font-size: xx-large;
+            margin: 5px;
+        }
+        .dishButton{
+            background-color: white;
+            text-align: center;
+            padding: 1px;
+            user-select: none;
+        }
+        .currentAmount {
+            text-align: center;
+        }
+        .disabled {
+            background-color: dimgrey;
+            color: linen;
+            pointer-events: none;
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            object-fit: contain;
+            padding-right: 10px;
+        }
+
+    </style>
+    <!-- Import all dish dictionaries -->
+    <script src="Rice.js"></script>
+    <script src="Vegetable.js"></script>
+    <script src="Meat.js"></script>
+    <script src="Fish.js"></script>
+    <script src="Seasoning.js"></script>
+</head>
+
+<div>
+    <div id="selectedDishesView">
+        <h2>Current dishes:</h2>
+        <div id="selectedDishesList"></div>
+    </div>
+    <div id="totalStats">
+        <h2>Total effect:</h2>
+        <div id="effectList"></div>
+    </div>
+    <div id="minStats">
+        <h2>Meal requirement:</h2>
+        <div id="minStatsList"></div>
+        <button id="addRequirementButton" onclick="addRequirement()">+</button>
+        <button id="suggestMealsButton" onclick="suggestMeals()">Suggest meals</button>
+    </div>
+    <div id="suggestedMeals"><h2>Suggested meals:</h2><div id="suggestedMealsList"></div></div>
+    <div>
+        <img src="favicon.ico">
+        <div id="costBar">
+            <div id="costBar2" style="width:0%;">0/100</div>
+        </div>
+    </div>
+</div>
+
+<div><img src="Images/Rice.png"><h2>Raw Rice</h2></div>
+<div id="rawRice"></div>
+
+<div><img src="Images/Vegetable.png"><h2>Raw Vegetables</h2></div>
+<div id="rawVegetable"></div>
+
+<div><img src="Images/Meat.png"><h2>Raw Meat</h2></div>
+<div id="rawMeat"></div>
+
+<div><img src="Images/Fish.png"><h2>Raw Fish</h2></div>
+<div id="rawFish"></div>
+
+<div><img src="Images/Rice.png"><img src="Images/Dried.png"><h2>Dried Rice</h2></div>
+<div id="driedRice"></div>
+
+<div><img src="Images/Vegetable.png"><img src="Images/Dried.png"><h2>Dried Vegetables</h2></div>
+<div id="driedVegetable"></div>
+
+<div><img src="Images/Meat.png"><img src="Images/Dried.png"><h2>Dried Meat</h2></div>
+<div id="driedMeat"></div>
+
+<div><img src="Images/Fish.png"><img src="Images/Dried.png"><h2>Dried Fish</h2></div>
+<div id="driedFish"></div>
+
+<div><img src="Images/Rice.png"><img src="Images/Dried.png"><img src="Images/Smoked.png"><h2>Smoked Dried Rice</h2></div>
+<div id="smokedRice"></div>
+
+<div><img src="Images/Vegetable.png"><img src="Images/Dried.png"><img src="Images/Smoked.png"><h2>Smoked Dried Vegetables</h2></div>
+<div id="smokedVegetable"></div>
+
+<div><img src="Images/Meat.png"><img src="Images/Dried.png"><img src="Images/Smoked.png"><h2>Smoked Dried Meat</h2></div>
+<div id="smokedMeat"></div>
+
+<div><img src="Images/Fish.png"><img src="Images/Dried.png"><img src="Images/Smoked.png"><h2>Smoked Dried Fish</h2></div>
+<div id="smokedFish"></div>
+
+<div><img src="Images/Soy.png"><h2>Soy Seasoning</h2></div>
+<div id="soySeasoning"></div>
+
+<div><img src="Images/Spicy.png"><h2>Spicy Seasoning</h2></div>
+<div id="spicySeasoning"></div>
+
+<div><img src="Images/Pickled.png"><h2>Pickled Seasoning</h2></div>
+<div id="pickledSeasoning"></div>
+
+<div><img src="Images/Salted.png"><h2>Salted Seasoning</h2></div>
+<div id="saltedSeasoning"></div>
+
+<div><img src="Images/Herbed.png"><h2>Herbed Seasoning</h2></div>
+<div id="herbedSeasoning"></div>
+
+<div><img src="Images/Sweet.png"><h2>Sweet Seasoning</h2></div>
+<div id="sweetSeasoning"></div>
+
+<div><img src="Images/Miso.png"><h2>Miso Seasoning</h2></div>
+<div id="misoSeasoning"></div>
+
+<div><img src="Images/Rice.png"><img src="Images/Seasoned.png"><h2>Seasoned Rice</h2></div>
+<div id="seasonedRice"></div>
+
+<div><img src="Images/Vegetable.png"><img src="Images/Seasoned.png"><h2>Seasoned Vegetables</h2></div>
+<div id="seasonedVegetable"></div>
+
+<div><img src="Images/Meat.png"><img src="Images/Seasoned.png"><h2>Seasoned Meat</h2></div>
+<div id="seasonedMeat"></div>
+
+<div><img src="Images/Fish.png"><img src="Images/Seasoned.png"><h2>Seasoned Fish</h2></div>
+<div id="seasonedFish"></div>
+
+<div><img src="Images/Rice.png"><img src="Images/Seasoned.png"><img src="Images/Smoked.png"><h2>Smoked Seasoned Rice</h2></div>
+<div id="smokedSeasonedRice"></div>
+
+<div><img src="Images/Vegetable.png"><img src="Images/Seasoned.png"><img src="Images/Smoked.png"><h2>Smoked Seasoned Vegetables</h2></div>
+<div id="smokedSeasonedVegetable"></div>
+
+<div><img src="Images/Meat.png"><img src="Images/Seasoned.png"><img src="Images/Smoked.png"><h2>Smoked Seasoned Meat</h2></div>
+<div id="smokedSeasonedMeat"></div>
+
+<div><img src="Images/Fish.png"><img src="Images/Seasoned.png"><img src="Images/Smoked.png"><h2>Smoked Seasoned Fish</h2></div>
+<div id="smokedSeasonedFish"></div>
+
+
+<script>
+    // some color corrections
+    function color_translation(color){
+        if(color == "green"){
+            return "lightgreen"
+        } else if(color == "blue"){
+            return "lightblue"
+        } else if(color == "red"){
+            return "crimson"
+        } else return color
+    }
+
+    // transforms actual numbers into the game's notation
+    function numberDisplay(number){
+        if (number % 1 != 0) return Math.round(number * 100) + "%"
+        else if (number < 0) return "-" + number
+        else return "+" + number
+    }
+
+    function addDish(dish){
+        if(selectedDishes[dish]) selectedDishes[dish]++
+        else selectedDishes[dish] = 1
+        updateSummaries()
+    }
+
+    function removeDish(dish){
+        selectedDishes[dish]--
+        if(!selectedDishes[dish]) delete selectedDishes[dish]
+        updateSummaries()
+    }
+
+    selectedDishes = {}
+    allDishes = {}
+
+    // generatese html elements from a dictionary of dishes
+    function unpackDishes(menu){
+        answer = ""
+
+        // Iterate over all dishes in the dictionary of dishes
+        for (let name in menu){
+            // add new dish to allDishes:
+            allDishes[name] = menu[name]
+
+            // Generate html element for one dish
+            answer +=
+                // Name the dish entry, Add the original color of the dish as background
+                "<div id='" + name + "' class='dish';'>"
+                // fullness cost
+                + "<div class='fullnessCost'>" + menu[name][2] + "</div>"
+                // add and remove ingredient widget
+                + "<div style='display:inline-block;padding-right:5px;'>"
+                    + "<div class = 'dishButton' onclick='addDish(\"" + name + "\")'>add</div>"
+                    + "<div class='currentAmount'>0</div>"
+                    + "<div class='dishButton disabled' onclick='removeDish(\"" + name + "\")' disabled>remove</div></div>"
+                // Title and setup for food effects
+                + "<div style='display:inline-block;padding-bottom: 2px;padding-right: 2px;'><h3 style='text-align: center;'>" + name + "</h3>"
+            // Add the actual food effects
+            for (let efficancy in menu[name][1]){
+                answer += "<div>" + efficancy + ": " + numberDisplay(menu[name][1][efficancy]) + "</div>"
+            }
+            answer += "</div><div>Sources:</div><div>"
+            
+            for (let source in menu[name][0]){
+                answer += menu[name][0][source] + "<br>"
+            }
+
+            answer += "</div></div>"
+        }
+        return answer
+    }
+
+    function updateSummaries(){
+        // update selectedDishesView
+        let selectedDishesView = ""
+        for (dish in selectedDishes){
+            selectedDishesView += "<span style='user-select: none;' onclick='removeDish(\"" + dish + "\")'>❌</span>" + dish + ": " + selectedDishes[dish] + "<br>"
+        }
+        document.getElementById("selectedDishesList").innerHTML = selectedDishesView
+
+        // update totalStats
+        let currentStats = {}
+        for (dish in selectedDishes){
+            for (stat in allDishes[dish][1]){
+                let amount = allDishes[dish][1][stat] * selectedDishes[dish]
+                if(currentStats[stat]) currentStats[stat] += amount
+                else currentStats[stat] = amount
+            }
+        }
+        let currentStatsView = ""
+        for(stat in currentStats){
+            currentStatsView += stat + ": " + numberDisplay(currentStats[stat]) + "<br>"
+        }
+        document.getElementById("effectList").innerHTML = currentStatsView
+        
+        // update costBar
+        let spentCost = 0
+        for (dish in selectedDishes){
+            spentCost += allDishes[dish][2] * selectedDishes[dish]
+        }
+        let width = spentCost
+        let color = "green"
+        if (spentCost >= 100){
+            width = 100
+            color = "red"
+        }
+        let costBar2 = document.getElementById("costBar2")
+        costBar2.style.backgroundColor = color
+        costBar2.style.width = width + "%"
+        costBar2.innerHTML = spentCost + "/100"
+
+        // update ingredient entries
+        let dishes = document.getElementsByClassName("dish")
+        for(let i = 0; i < dishes.length; i++){
+            // add
+            if(allDishes[dishes[i].id][2] + spentCost > 100) dishes[i].getElementsByClassName("dishButton")[0].className = "dishButton disabled"
+            else dishes[i].getElementsByClassName("dishButton")[0].className = "dishButton"
+            // number
+            dishes[i].getElementsByClassName("currentAmount")[0].innerHTML = (selectedDishes[dishes[i].id] || 0)
+            // remove
+            if(selectedDishes[dishes[i].id]) dishes[i].getElementsByClassName("dishButton")[1].className = "dishButton"
+            else dishes[i].getElementsByClassName("dishButton")[1].className = "dishButton disabled"
+        }
+    }
+
+    function suggestMeals(){
+        let button = document.getElementById("suggestMealsButton")
+        button.disabled = true
+        
+        // wait for button to be disabled
+        setTimeout(() => { 
+            // get selected effects from html
+            effectReqs = {}
+            minStatsListEntries = document.getElementsByClassName("minStatsListEntry")
+            for(let i = 0;i < minStatsListEntries.length;i++){
+                let key = minStatsListEntries[i].getElementsByClassName("minStatsEntry")[0].value
+                let value = minStatsListEntries[i].getElementsByClassName("minStatsEntryValue")[0].value
+                if (effectDict[key]) value = value / 100
+                effectReqs[key] = value
+            }
+
+            // get meals, sort them by least filling, keep best 5
+            suggestedMeals = suggestMealsLoop(0, 0, effectReqs).sort((a,b) => a[a.length - 1] - b[b.length - 1]).slice(0, 10)
+            suggestedMealsArray = []
+            
+            // print meals
+            newMealList = ""
+            for(meal in suggestedMeals){
+                let lastPrint = 0
+                newMealList += "<div onclick='clickSuggestion(" + meal + ")'<span class='saturation'>" + suggestedMeals[meal].pop() + ":</span>"
+
+                counts = {}
+                suggestedMeals[meal].forEach(function (x) { counts[x] = (counts[x] || 0) + 1 })
+                suggestedMealsArray.push(counts)
+
+                for (entry in counts){
+                    newMealList += entry + " x" + counts[entry] + "  "
+                }
+
+                newMealList += "</div>"
+            }
+            document.getElementById("suggestedMealsList").innerHTML = newMealList
+
+            button.disabled = false
+        }, 10);        
+    }
+
+    function suggestMealsLoop(iter, fullness, requirements){
+        let possibleMeals = []
+
+        outerLoop:
+        for (let i = iter;i < allDishesList.length;i++){
+            for (req in requirements){
+                let newFullness = fullness + allDishes[allDishesList[i]][2]
+
+                if(requirements[req] > 0 && allDishes[allDishesList[i]][1][req] && newFullness <= 100){
+                    // Ingredient helps getting required stats and is not over the maximum fullness
+
+                    // calculate the updated requirements if this was eaten
+                    let requirements2 = {}
+                    for (req2 in requirements){
+                        requirements2[req2] = requirements[req2] - (allDishes[allDishesList[i]][1][req2] || 0)
+                    }
+                    
+                    for (req3 in requirements2){
+                        if(requirements2[req3] > 0){
+                            // This ingredient is not enough to satisfy the requirements
+
+                            // loop to find more ingredients to add
+                            let newPossibleMeals = suggestMealsLoop(i, newFullness, requirements2)
+                            for(item in newPossibleMeals){
+                                newPossibleMeals[item].unshift(allDishesList[i])
+                                possibleMeals.push(newPossibleMeals[item])
+                            }
+                            continue outerLoop
+                        }
+                    }
+                    // This ingredient completes the meal
+                    possibleMeals.push([allDishesList[i], newFullness])
+                    continue outerLoop
+                }
+            }
+        }
+        return possibleMeals
+    }
+
+    function clickSuggestion(i){
+        selectedDishes = suggestedMealsArray[i]
+        updateSummaries()
+    }
+
+    function addRequirement(){
+        newEntry = "<span style='user-select:none;' onclick='removeRequirement(this)'>❌</span><select class='minStatsEntry'>"
+        for (effect in effectDict){
+            newEntry += "<option value='" + effect + "'>" + effect + "</option>"
+        }
+
+        newDiv = document.createElement("div")
+        newDiv.className = "minStatsListEntry"
+        newDiv.innerHTML = newEntry + "</select><input class='minStatsEntryValue' type='number' min='0' value='1'>"
+
+        document.getElementById("minStatsList").appendChild(newDiv)
+    }
+
+    function removeRequirement(requirement){
+        document.getElementById("minStatsList").removeChild(requirement.parentNode)
+    }
+
+    // load in the dish elements
+    document.getElementById("rawRice").innerHTML = unpackDishes(Rice.raw)
+    document.getElementById("rawVegetable").innerHTML = unpackDishes(Vegetable.raw)
+    document.getElementById("rawMeat").innerHTML = unpackDishes(Meat.raw)
+    document.getElementById("rawFish").innerHTML = unpackDishes(Fish.raw)
+
+    document.getElementById("driedRice").innerHTML = unpackDishes(Rice.dried)
+    document.getElementById("driedVegetable").innerHTML = unpackDishes(Vegetable.dried)
+    document.getElementById("driedMeat").innerHTML = unpackDishes(Meat.dried)
+    document.getElementById("driedFish").innerHTML = unpackDishes(Fish.dried)
+
+    document.getElementById("smokedRice").innerHTML = unpackDishes(Rice.smoked)
+    document.getElementById("smokedVegetable").innerHTML = unpackDishes(Vegetable.smoked)
+    document.getElementById("smokedMeat").innerHTML = unpackDishes(Meat.smoked)
+    document.getElementById("smokedFish").innerHTML = unpackDishes(Fish.smoked)
+
+    document.getElementById("soySeasoning").innerHTML = unpackDishes(Seasoning.Soy)
+    document.getElementById("spicySeasoning").innerHTML = unpackDishes(Seasoning.Spicy)
+    document.getElementById("pickledSeasoning").innerHTML = unpackDishes(Seasoning.Pickled)
+    document.getElementById("saltedSeasoning").innerHTML = unpackDishes(Seasoning.Salted)
+    document.getElementById("herbedSeasoning").innerHTML = unpackDishes(Seasoning.Herbed)
+    document.getElementById("sweetSeasoning").innerHTML = unpackDishes(Seasoning.Sweet)
+    document.getElementById("misoSeasoning").innerHTML = unpackDishes(Seasoning.Miso)
+
+    document.getElementById("seasonedRice").innerHTML = unpackDishes(Rice.seasoned)
+    document.getElementById("seasonedVegetable").innerHTML = unpackDishes(Vegetable.seasoned)
+    document.getElementById("seasonedMeat").innerHTML = unpackDishes(Meat.seasoned)
+    document.getElementById("seasonedFish").innerHTML = unpackDishes(Fish.seasoned)
+
+    document.getElementById("smokedSeasonedRice").innerHTML = unpackDishes(Rice.smokedSeasoned)
+    document.getElementById("smokedSeasonedVegetable").innerHTML = unpackDishes(Vegetable.smokedSeasoned)
+    document.getElementById("smokedSeasonedMeat").innerHTML = unpackDishes(Meat.smokedSeasoned)
+    document.getElementById("smokedSeasonedFish").innerHTML = unpackDishes(Fish.smokedSeasoned)
+
+    // list all dishes
+    allDishesList = Object.keys(allDishes)
+
+    // dict of all effects, true if percentage value
+    effectDict = {}
+    for (dish in allDishes){
+        for (effect in allDishes[dish][1])
+        if(effectDict[effect] == undefined) effectDict[effect] = allDishes[dish][1][effect] % 1 != 0
+    }
+    // sort dict
+    effectDict = Object.keys(effectDict).sort().reduce((obj, key) => {obj[key] = effectDict[key]; return obj}, {})
+
+</script>
