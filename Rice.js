@@ -3,9 +3,12 @@ Rice = {
         // Blossom trail
         "Millet": [["Blossom Trail"], { "Health Boost": 7 }, 20],
 
+        // Akikure Canyon
+        "Gem Rice": [["Akikure Canyon"], { "Health Boost": 15, "Recovery Boost": 0.08 }, 40],
+        "Unmilled Rice": [["Akikure Canyon"], { "Health Boost": 9, "Recovery Boost": 0.02 }, 30],
+
         // Vendor
-        "Wheat": [["Vendor only?"], { "Health Boost": 8, "Recovery Boost": 0.04}, 30]
-        
+        "Wheat": [["vendor only"], { "Health Boost": 8, "Recovery Boost": 0.04}, 30]
     },
     "dried":{
         "Dried Rice": [["drying mixed rice"], { "Health Boost": 19 }, 40],
@@ -13,18 +16,26 @@ Rice = {
         // Blossom trail
         "Dried Millet": [["Blossom Trail"], { "Health Boost": 13 }, 30],
 
+        // Akikure Canyon
+        "Dried Gem Rice": [["drying Gem Rice"], { "Health Boost": 30, "Recovery Boost": 0.16 }, 60],
+        "Dried Unmilled Rice": [["drying Unmilled Rice"], { "Health Boost": 18, "Recovery Boost": 0.04 }, 45],
+
         // Vendor
-        "Dried Wheat": [["Vendor only?"], { "Health Boost": 15, "Recovery Boost": 0.06}, 45]
+        "Dried Wheat": [["drying Wheat"], { "Health Boost": 15, "Recovery Boost": 0.06}, 45]
     },
     "smoked":{
         "Smoked Rice": [["smoking raw rice"], { "Health Boost": 9, "Critical Master": 0.02}, 30],
-        // smoked dried rice
+        "Smoked Dried Rice": [["smoking Dried Rice"], { "Health Boost": 20 }, 40],
 
         // Blossom trail
-        "Smoked Dried Millet": [["smoking Dried Millet"], { "Health Boost": 15 }, 30]
+        "Smoked Dried Millet": [["smoking Dried Millet"], { "Health Boost": 15 }, 30],
+
+        // Akikure Canyon
+        "Smoked Dried Gem Rice": [["smoking Dried Gem Rice"], { "Health Boost": 32, "Recovery Boost": 0.19 }, 60],
+        "Smoked Dried Unmilled Rice": [["smoking Dried Unmilled Rice"], { "Health Boost": 21, "Recovery Boost": 0.05 }, 45],
 
         // Vendor
-        // Wheat
+        "Smoked Dried Wheat": [["smoking Dried Wheat"], { "Health Boost": 17, "Recovery Boost": 0.08}, 45]
     },
     "seasoned":{
         "Soy Rice": [["pickle Rice with Soy seasoning"], { "Health Boost": 21, "Fatigue Alleviation": 0.05 }, 40],

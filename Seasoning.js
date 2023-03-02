@@ -1,22 +1,34 @@
 Seasoning = {
     "Soy": {
         // Fermenting
-        "Fish Paste": [["Fermenting Fish"], {"Provocation": 0.06}, 25]
+        "Fish Paste": [["Fermenting Fish"], {"Provocation": 0.06}, 25],
+
+        // Vendor
+        "Mash": [["Vendor only"], {"Fatigue Alleviation": 0.05, "Provocation": 0.1}, 35]
     },
     "Spicy": {
         // Blossom trail
         "Prickly Ash Pepper": [["Blossom Trail"], {"Critical Boost: Fury": 0.01, "Critical Master": 0.01, "Wood Resilience Foil": 2}, 10],
+
+        // Frozen Fort
+        "Chili Pepper": [["Frozen Fort"], {"Freezing Resilience": 0.02, "Fatigue Resilience": 0.01, "Defense Foil": 0.01}, 10],
 
         // Pets
         "Fall Wasabi": [["Wasabiskimmer Dragonfly"], {"Antitoxin": 0.02, "Attack Foil": 0.01}, 10]
     },
     "Pickled": {
         // Fermenting
-        "Vinegar": [["Fermenting Vegetables"], {"Fatigue Alleviation" : 0.01}, 10]
+        "Vinegar": [["Fermenting Vegetables"], {"Fatigue Alleviation" : 0.01}, 10],
+
+        // Vendor
+        "Fruit Vinegar": [["Vendor only"], {"Fatigue Alleviation": 0.01, "Defense Boost": 0.01}, 10]
     },
     "Salted": {
         // Fermenting
         "Meat Paste": [["Fermenting Meat"], {"Critical Master": 0.03}, 25],
+
+        // Frozen Fort
+        "Clear Rock Salt": [["Frozen Fort"], {"Fog Fall": 0.01, "Defense Foil": 0.01}, 10]
     },
     "Herbed": {
         // Blossom trail
@@ -26,7 +38,7 @@ Seasoning = {
         "Belly Yuzu": [["Citrusscent Owl"], {"Health Boost": 4, "Wood Boost": 0.05, "Defense Boost": 0.01}, 15],
 
         // Vendor
-        "Zesty Spice Mix": [["Vendor only?"], {"Wood Resilience": 1, "Tangle Resilience Foil": 0.03}, 10]
+        "Zesty Spice Mix": [["vendor only"], {"Wood Resilience": 1, "Tangle Resilience Foil": 0.03}, 10]
     },
     "Sweet": {
         // Pets
@@ -38,6 +50,6 @@ Seasoning = {
         "Miso Paste": [["Fermenting Grains"], {"Fatigue Alleviation": 0.03}, 25],
 
         // Vendor
-        "Mixed Miso": [["Vendor only?"], {"Fatigue Alleviation": 0.03, "Health Boost": 5}, 25]
+        "Mixed Miso": [["vendor only"], {"Fatigue Alleviation": 0.03, "Health Boost": 5}, 25]
     }
 }

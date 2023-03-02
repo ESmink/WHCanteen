@@ -4,9 +4,15 @@ Fish = {
         "Clamcrested Salmon": [["Blossom Trail"], { "Health Boost": 5, "Blackout Recovery": 0.06 }, 30],
         "Pebblegloss Sweetfish": [["Blossom Trail"], { "Health Boost": 7, "Fatigue Alleviation": 0.05 }, 30],
 
+        // Natsukodachi Isle
+        "Prismwhelk Salmon": [["Natsukodachi Isle"], { "Health Boost": 7, "Water Resilience": 3 }, 30],
+
+        // Akikure Canyon
+        "Dogwood Catfish": [["Akikure Canyon"], { "Health Boost": 3, "Earth Resilience": 2, "Antitoxin Foil": 0.03 }, 20],
+        "Crystalcap Sweetfish": [["Akikure Canyon"], { "Health Boost": 7, "Water Resilience": 2, "Fatigue Alleviation": 0.02 }, 30],
+
         // Vendor
-        "Bonito Fillet": [["Vendor only?"], { "Health Boost": 10, "Follow-Through": 1 }, 40]
-        
+        "Bonito Fillet": [["vendor only"], { "Health Boost": 10, "Follow-Through": 1 }, 40]
     },
     "dried": {
         "Dried Fish": [["drying mixed fish"], { "Health Boost": 9, "Fatigue Alleviation": 0.07 }, 35],
@@ -14,6 +20,13 @@ Fish = {
         // Blossom trail
         "Dried Clamcrested Salmon": [["drying Clamcrested Salmon"], { "Health Boost": 9, "Blackout Recovery": 0.07 }, 35],
         "Dried Pebblegloss Sweetfish": [["drying Pebblegloss Sweetfish"], { "Health Boost": 13, "Fatigue Alleviation": 0.1 }, 45],
+
+        // Natsukodachi Isle
+        "Dried Prismwhelk Salmon": [["drying Prismwhelk Salmon"], { "Health Boost": 13, "Water Resilience": 5 }, 45],
+
+        // Akikure Canyon
+        "Dried Catfish": [["drying Dogwood Catfish"], { "Health Boost": 9, "Earth Resilience": 3 }, 30],
+        "Dried Crystalcap": [["drying Crystalcap Sweetfish"], { "Health Boost": 13, "Water Resilience": 3, "Fatigue Alleviation": 0.04 }, 45],
 
         // Vendor
         "Dried Bonito Fillet": [["drying Bonito Fillet"], { "Health Boost": 18, "Follow-Through": 2 }, 60]
@@ -25,6 +38,13 @@ Fish = {
         // Blossom trail
         "Smoked Dried Clamcrested Salmon": [["smoking Clamcrested Salmon"], { "Health Boost": 16, "Blackout Recovery": 0.14}, 45],
         "Smoked Dried Pebblegloss Sweetfish": [["smoking Dried Pebblegloss Sweetfish"], { "Health Boost": 16, "Fatigue Alleviation": 0.12}, 45],
+
+        // Natsukodachi Isle
+        "Smoked Dried Prismwhelk Salmon": [["smoking Dried Prismwhelk Salmon"], { "Health Boost": 16, "Water Resilience": 6 }, 45],
+
+        // Akikure Canyon
+        "Smoked Dried Catfish": [["smoking Dried Catfish"], { "Health Boost": 12, "Earth Resilience": 4 }, 30],
+        "Smoked Dried Crystalcap": [["smoking Dried Crystalcap"], { "Health Boost": 16, "Water Resilience": 3, "Fatigue Alleviation": 0.05 }, 45],
 
         // Vendor
         "Smoked Dried Bonito Fillet": [["smoking Dried Bonito Fillet"], { "Health Boost": 21, "Follow-Through": 2, "Critical Master": 0.03 }, 60]

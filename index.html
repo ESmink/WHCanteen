@@ -191,21 +191,11 @@
 
 
 <script>
-    // some color corrections
-    function color_translation(color){
-        if(color == "green"){
-            return "lightgreen"
-        } else if(color == "blue"){
-            return "lightblue"
-        } else if(color == "red"){
-            return "crimson"
-        } else return color
-    }
 
     // transforms actual numbers into the game's notation
     function numberDisplay(number){
         if (number % 1 != 0) return Math.round(number * 100) + "%"
-        else if (number < 0) return "-" + number
+        else if (number < 0) return number
         else return "+" + number
     }
 
@@ -353,7 +343,7 @@
             document.getElementById("suggestedMealsList").innerHTML = newMealList
 
             button.disabled = false
-        }, 10);        
+        }, 10);
     }
 
     function suggestMealsLoop(iter, fullness, requirements){
