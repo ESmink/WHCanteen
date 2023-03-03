@@ -12,7 +12,8 @@ Fish = {
         "Crystalcap Sweetfish": [["Akikure Canyon"], { "Health Boost": 7, "Water Resilience": 2, "Fatigue Alleviation": 0.02 }, 30],
 
         // Vendor
-        "Bonito Fillet": [["vendor only"], { "Health Boost": 10, "Follow-Through": 1 }, 40]
+        "Bonito Fillet": [["vendor: rotating stock"], { "Health Boost": 10, "Follow-Through": 1 }, 40],
+        "Horse Mackrel": [["vendor: rotating stock"], { "Health Boost": 7,  "Fatigue Alleviation": 0.07 }, 40]
     },
     "dried": {
         "Dried Fish": [["drying mixed fish"], { "Health Boost": 9, "Fatigue Alleviation": 0.07 }, 35],
@@ -29,7 +30,8 @@ Fish = {
         "Dried Crystalcap": [["drying Crystalcap Sweetfish"], { "Health Boost": 13, "Water Resilience": 3, "Fatigue Alleviation": 0.04 }, 45],
 
         // Vendor
-        "Dried Bonito Fillet": [["drying Bonito Fillet"], { "Health Boost": 18, "Follow-Through": 2 }, 60]
+        "Dried Bonito Fillet": [["vendor: rotating stock", "drying Bonito Fillet"], { "Health Boost": 18, "Follow-Through": 2 }, 60],
+        "Dried Horse Mackrel": [["vendor: rotating stock", "drying Horse Mackrel"], { "Health Boost": 13,  "Fatigue Alleviation": 0.09 }, 60]
     },
     "smoked":{
         "Smoked Fish": [["smoking raw fish"],  { "Health Boost": 8, "Fatigue Alleviation": 0.06, "Critical Master": 0.02}, 35],
@@ -47,7 +49,8 @@ Fish = {
         "Smoked Dried Crystalcap": [["smoking Dried Crystalcap"], { "Health Boost": 16, "Water Resilience": 3, "Fatigue Alleviation": 0.05 }, 45],
 
         // Vendor
-        "Smoked Dried Bonito Fillet": [["smoking Dried Bonito Fillet"], { "Health Boost": 21, "Follow-Through": 2, "Critical Master": 0.03 }, 60]
+        "Smoked Dried Bonito Fillet": [["vendor: rotating stock", "smoking Dried Bonito Fillet"], { "Health Boost": 21, "Follow-Through": 2, "Critical Master": 0.03 }, 60],
+        "Smoked Dried Horse Mackrel": [["vendor: rotating stock", "smoking Dried Horse Mackrel"], { "Health Boost": 16,  "Fatigue Alleviation": 0.15 }, 60]
     },
     "seasoned":{
         "Soy Fish": [["pickle Fish with Soy seasoning"], { "Health Boost": 11, "Fatigue Alleviation": 0.12 }, 35],

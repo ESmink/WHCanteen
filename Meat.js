@@ -5,8 +5,10 @@ Meat = {
         "Red Meat": [["Sagecane Deer"], { "Health Boost": 7, "Attack Boost": 0.03 }, 40],
 
         // Natsukodachi Isle
-        "Sliced Meat": [["Coralcoat Turtle", "Conkclad Buffalo"], { "Health Boost": 6, "Attack Boost": 0.04 }, 40]
-        
+        "Sliced Meat": [["Coralcoat Turtle", "Conkclad Buffalo"], { "Health Boost": 6, "Attack Boost": 0.04 }, 40],
+
+        // Vendor
+        "Marbled Meat": [["vendor: rotating stock"], { "Health Boost": 14, "Final Blow": 0.08 }, 55]
     },
     "dried": {
         "Dried Meat": [["drying mixed meats"], { "Health Boost": 10, "Attack Boost": 0.04 }, 45],
@@ -16,7 +18,10 @@ Meat = {
         "Dried Red Meat": [["drying Red Meat"], { "Health Boost": 13, "Attack Boost": 0.06 }, 60],
 
         // Natsukodachi Isle
-        "Dried Sliced Meat": [["drying Sliced Meat"], { "Health Boost": 11, "Attack Boost": 0.06 }, 55]
+        "Dried Sliced Meat": [["drying Sliced Meat"], { "Health Boost": 11, "Attack Boost": 0.06 }, 55],
+
+        // Vendor
+        "Dried Marbled Meat": [["vendor: rotating stock", "drying Marbled Meat"], { "Health Boost": 23, "Final Blow": 0.11 }, 75]
     },
     "smoked":{
         "Smoked Meat": [["smoking raw meat"], { "Health Boost": 10, "Attack Boost": 0.03, "Critical Master": 0.02 }, 45],
@@ -28,6 +33,9 @@ Meat = {
 
         // Akikure Canyon
         "Smoked Dried Sliced Meat": [["smoking Dried Sliced Meat"], { "Health Boost": 14, "Attack Boost": 0.06 }, 55],
+
+        // Vendor
+        "Smoked Dried Marbled Meat": [["vendor: rotating stock", "smoking Dried Marbled Meat"], { "Health Boost": 26, "Final Blow": 0.13 }, 75]
     },
     "seasoned":{
         "Soy Meat": [["pickle Meat with Spicy seasoning"], { "Health Boost": 12, "Attack Boost": 0.04, "Fatigue Alleviation": 0.05 }, 45],

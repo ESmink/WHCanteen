@@ -98,6 +98,8 @@
         <div id="minStatsList"></div>
         <button id="addRequirementButton" onclick="addRequirement()">+</button>
         <button id="suggestMealsButton" onclick="suggestMeals()">Suggest meals</button>
+        <br><input type="checkbox" id="sugVendor" name="scales">Suggest vendor rotating stock
+        <br><input type="checkbox" id="sugInter" name="scales">Suggest intermediate product
     </div>
     <div id="suggestedMeals"><h2>Suggested meals:</h2><div id="suggestedMealsList"></div></div>
     <div>
@@ -309,7 +311,7 @@
         button.disabled = true
         
         // wait for button to be disabled
-        setTimeout(() => { 
+        setTimeout(() => {
             // get selected effects from html
             effectReqs = {}
             minStatsListEntries = document.getElementsByClassName("minStatsListEntry")
@@ -319,6 +321,21 @@
                 if (effectDict[key]) value = value / 100
                 effectReqs[key] = value
             }
+
+            // update the relevent dishes, relevantDishesList is set globally so suggestMeals can access it
+            relevantDishesList = [].concat(Object.keys(Rice.raw), Object.keys(Vegetable.raw), Object.keys(Meat.raw), Object.keys(Fish.raw))
+            if(document.getElementById("sugInter").checked){
+                relevantDishesList = relevantDishesList.concat(Object.keys(Rice.dried), Object.keys(Vegetable.dried), Object.keys(Meat.dried), Object.keys(Fish.dried)
+                                        , Object.keys(Rice.seasoned), Object.keys(Vegetable.seasoned), Object.keys(Meat.seasoned), Object.keys(Fish.seasoned))
+            }
+            relevantDishesList = relevantDishesList.concat(Object.keys(Rice.smoked), Object.keys(Vegetable.smoked), Object.keys(Meat.smoked), Object.keys(Fish.smoked)
+                                    , Object.keys(Rice.smokedSeasoned), Object.keys(Vegetable.smokedSeasoned), Object.keys(Meat.smokedSeasoned), Object.keys(Fish.smokedSeasoned))
+
+            if(!document.getElementById("sugVendor").checked) relevantDishesList = relevantDishesList.filter((dish) => !allDishes[dish][0].includes("vendor: rotating stock"))
+            relevantDishesList = relevantDishesList.filter((dish) => {
+                for(req in effectReqs) if(allDishes[dish][1][req] != undefined) return true
+                return false
+            })
 
             // get meals, sort them by least filling, keep best 5
             suggestedMeals = suggestMealsLoop(0, 0, effectReqs).sort((a,b) => a[a.length - 1] - b[b.length - 1]).slice(0, 10)
@@ -350,17 +367,17 @@
         let possibleMeals = []
 
         outerLoop:
-        for (let i = iter;i < allDishesList.length;i++){
+        for (let i = iter;i < relevantDishesList.length;i++){
             for (req in requirements){
-                let newFullness = fullness + allDishes[allDishesList[i]][2]
+                let newFullness = fullness + allDishes[relevantDishesList[i]][2]
 
-                if(requirements[req] > 0 && allDishes[allDishesList[i]][1][req] && newFullness <= 100){
+                if(requirements[req] > 0 && allDishes[relevantDishesList[i]][1][req] && newFullness <= 100){
                     // Ingredient helps getting required stats and is not over the maximum fullness
 
                     // calculate the updated requirements if this was eaten
                     let requirements2 = {}
                     for (req2 in requirements){
-                        requirements2[req2] = requirements[req2] - (allDishes[allDishesList[i]][1][req2] || 0)
+                        requirements2[req2] = requirements[req2] - (allDishes[relevantDishesList[i]][1][req2] || 0)
                     }
                     
                     for (req3 in requirements2){
@@ -370,14 +387,14 @@
                             // loop to find more ingredients to add
                             let newPossibleMeals = suggestMealsLoop(i, newFullness, requirements2)
                             for(item in newPossibleMeals){
-                                newPossibleMeals[item].unshift(allDishesList[i])
+                                newPossibleMeals[item].unshift(relevantDishesList[i])
                                 possibleMeals.push(newPossibleMeals[item])
                             }
                             continue outerLoop
                         }
                     }
                     // This ingredient completes the meal
-                    possibleMeals.push([allDishesList[i], newFullness])
+                    possibleMeals.push([relevantDishesList[i], newFullness])
                     continue outerLoop
                 }
             }
@@ -440,9 +457,6 @@
     document.getElementById("smokedSeasonedVegetable").innerHTML = unpackDishes(Vegetable.smokedSeasoned)
     document.getElementById("smokedSeasonedMeat").innerHTML = unpackDishes(Meat.smokedSeasoned)
     document.getElementById("smokedSeasonedFish").innerHTML = unpackDishes(Fish.smokedSeasoned)
-
-    // list all dishes
-    allDishesList = Object.keys(allDishes)
 
     // dict of all effects, true if percentage value
     effectDict = {}

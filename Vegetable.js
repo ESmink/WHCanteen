@@ -30,7 +30,7 @@ Vegetable = {
         "Snow Leaf": [["Rockfoil Rabbit"], {"Health Boost": 4, "Water Boost": 0.05, "Defense Boost": 0.01 }, 15],
 
         // Vendor
-        "Pumpkin": [["Vendor only"], { "Health Boost": 16, "Recovery Boost": 0.01, "Defense Boost": 0.02 }, 40]
+        "Pumpkin": [["vendor: rotating stock"], { "Health Boost": 16, "Recovery Boost": 0.01, "Defense Boost": 0.02 }, 40]
     },
     "dried":{
         "Dried Vegetables": [["drying mixed vegetables"], { "Health Boost": 9, "Defense Boost": 0.03 }, 40],
@@ -65,7 +65,7 @@ Vegetable = {
         "Dried Snow Leaf": [["drying Snow Leaf"], {"Health Boost": 6, "Water Boost": 0.05, "Defense Boost": 0.01 }, 20],
 
         // Vendor
-        "Dried Pumpkin": [["drying Pumpkin"], { "Health Boost": 28, "Recovery Boost": 0.02, "Defense Boost": 0.04 }, 60]
+        "Dried Pumpkin": [["vendor: rotating stock", "drying Pumpkin"], { "Health Boost": 28, "Recovery Boost": 0.02, "Defense Boost": 0.04 }, 60]
     },
     "smoked":{
         "Smoked Vegetables": [["smoking raw vegetables"], { "Health Boost": 6, "Defense Boost": 0.02, "Critical Master": 0.01}, 25],
@@ -101,7 +101,7 @@ Vegetable = {
         "Smoked Dried Snow Leaf": [["smoking Dried Snow Leaf"], {"Health Boost": 8, "Water Boost": 0.05, "Defense Boost": 0.02 }, 20],
 
         // Vendor
-        "Smoked Dried Pumpkin": [["drying Pumpkin"], { "Health Boost": 30, "Recovery Boost": 0.03, "Defense Boost": 0.05 }, 60]
+        "Smoked Dried Pumpkin": [["vendor: rotating stock", "drying Pumpkin"], { "Health Boost": 30, "Recovery Boost": 0.03, "Defense Boost": 0.05 }, 60]
     },
     "seasoned":{
         "Soy Vegetables": [["pickle Vegetables with Soy seasoning"], { "Health Boost": 11, "Defense Boost": 0.03, "Fatigue Alleviation": 0.05 }, 40],
