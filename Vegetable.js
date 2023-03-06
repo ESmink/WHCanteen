@@ -28,6 +28,7 @@ Vegetable = {
         "Spiral Fern": [["Ferntail Gecko"], { "Aquisition Art": 0.03, "Axial Foil": 0.05 }, 35],
         "Backnut": [["Chestnutkeeper Hedgehog"], {"Health Boost": 10, "Destruction Art": 0.02}, 30],
         "Snow Leaf": [["Rockfoil Rabbit"], {"Health Boost": 4, "Water Boost": 0.05, "Defense Boost": 0.01 }, 15],
+        "Inari Fruit": [["Kudzuclad Fox"], {"Health Boost": 12, "Blade Debar": 0.05 }, 40],
 
         // Vendor
         "Pumpkin": [["vendor: rotating stock"], { "Health Boost": 16, "Recovery Boost": 0.01, "Defense Boost": 0.02 }, 40]
@@ -63,6 +64,7 @@ Vegetable = {
         "Dried Fern": [["drying Spiral Fern"], { "Aquisition Art": 0.06 }, 55],
         "Dried Backnut": [["drying Backnut"], {"Health Boost": 18, "Destruction Art": 0.04}, 45],
         "Dried Snow Leaf": [["drying Snow Leaf"], {"Health Boost": 6, "Water Boost": 0.05, "Defense Boost": 0.01 }, 20],
+        "Dried Inari Fruit": [["drying Inari Fruit"], {"Health Boost": 21, "Blade Debar": 0.1 }, 60],
 
         // Vendor
         "Dried Pumpkin": [["vendor: rotating stock", "drying Pumpkin"], { "Health Boost": 28, "Recovery Boost": 0.02, "Defense Boost": 0.04 }, 60]
@@ -99,6 +101,7 @@ Vegetable = {
         "Smoked Dried Fern": [["smoking Dried Fern"], { "Aquisition Art": 0.08 }, 55],
         "Smoked Dried Backnut": [["smoking Dried Backnut"], {"Health Boost": 20, "Destruction Art": 0.04, "Savage": 1}, 45],
         "Smoked Dried Snow Leaf": [["smoking Dried Snow Leaf"], {"Health Boost": 8, "Water Boost": 0.05, "Defense Boost": 0.02 }, 20],
+        "Smoked Dried Inari Fruit": [["smoking Dried Inari Fruit"], {"Health Boost": 24, "Blade Debar": 0.12 }, 60],
 
         // Vendor
         "Smoked Dried Pumpkin": [["vendor: rotating stock", "drying Pumpkin"], { "Health Boost": 30, "Recovery Boost": 0.03, "Defense Boost": 0.05 }, 60]
