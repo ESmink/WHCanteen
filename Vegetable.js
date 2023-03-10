@@ -31,7 +31,7 @@ Vegetable = {
         "Inari Fruit": [["Kudzuclad Fox"], {"Health Boost": 12, "Blade Debar": 0.05 }, 40],
 
         // Vendor
-        "Pumpkin": [["vendor: rotating stock"], { "Health Boost": 16, "Recovery Boost": 0.01, "Defense Boost": 0.02 }, 40]
+        "Pumpkin": [["vendor only"], { "Health Boost": 16, "Recovery Boost": 0.01, "Defense Boost": 0.02 }, 40]
     },
     "dried":{
         "Dried Vegetables": [["drying mixed vegetables"], { "Health Boost": 9, "Defense Boost": 0.03 }, 40],
@@ -67,7 +67,7 @@ Vegetable = {
         "Dried Inari Fruit": [["drying Inari Fruit"], {"Health Boost": 21, "Blade Debar": 0.1 }, 60],
 
         // Vendor
-        "Dried Pumpkin": [["vendor: rotating stock", "drying Pumpkin"], { "Health Boost": 28, "Recovery Boost": 0.02, "Defense Boost": 0.04 }, 60]
+        "Dried Pumpkin": [["vendor only", "drying Pumpkin"], { "Health Boost": 28, "Recovery Boost": 0.02, "Defense Boost": 0.04 }, 60]
     },
     "smoked":{
         "Smoked Vegetables": [["smoking raw vegetables"], { "Health Boost": 6, "Defense Boost": 0.02, "Critical Master": 0.01}, 25],
@@ -104,7 +104,7 @@ Vegetable = {
         "Smoked Dried Inari Fruit": [["smoking Dried Inari Fruit"], {"Health Boost": 24, "Blade Debar": 0.12 }, 60],
 
         // Vendor
-        "Smoked Dried Pumpkin": [["vendor: rotating stock", "drying Pumpkin"], { "Health Boost": 30, "Recovery Boost": 0.03, "Defense Boost": 0.05 }, 60]
+        "Smoked Dried Pumpkin": [["vendor only", "drying Pumpkin"], { "Health Boost": 30, "Recovery Boost": 0.03, "Defense Boost": 0.05 }, 60]
     },
     "seasoned":{
         "Soy Vegetables": [["pickle Vegetables with Soy seasoning"], { "Health Boost": 11, "Defense Boost": 0.03, "Fatigue Alleviation": 0.05 }, 40],

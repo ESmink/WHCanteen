@@ -8,7 +8,7 @@ Rice = {
         "Unmilled Rice": [["Akikure Canyon"], { "Health Boost": 9, "Recovery Boost": 0.02 }, 30],
 
         // Vendor
-        "Wheat": [["vendor: always availible"], { "Health Boost": 8, "Recovery Boost": 0.04}, 30]
+        "Wheat": [["vendor only"], { "Health Boost": 8, "Recovery Boost": 0.04}, 30]
     },
     "dried":{
         "Dried Rice": [["drying mixed rice"], { "Health Boost": 19 }, 40],

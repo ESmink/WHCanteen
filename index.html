@@ -331,7 +331,7 @@
             relevantDishesList = relevantDishesList.concat(Object.keys(Rice.smoked), Object.keys(Vegetable.smoked), Object.keys(Meat.smoked), Object.keys(Fish.smoked)
                                     , Object.keys(Rice.smokedSeasoned), Object.keys(Vegetable.smokedSeasoned), Object.keys(Meat.smokedSeasoned), Object.keys(Fish.smokedSeasoned))
 
-            if(!document.getElementById("sugVendor").checked) relevantDishesList = relevantDishesList.filter((dish) => !allDishes[dish][0].includes("vendor: rotating stock"))
+            if(!document.getElementById("sugVendor").checked) relevantDishesList = relevantDishesList.filter((dish) => !allDishes[dish][0].includes("vendor only"))
             relevantDishesList = relevantDishesList.filter((dish) => {
                 for(req in effectReqs) if(allDishes[dish][1][req] != undefined) return true
                 return false
